@@ -46,7 +46,21 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-        // TODO: handler for json
+        // handler for json responses for APIs
+        if ($request->wantsJson()) {
+            // Default response of 400
+            $status = 400;
+
+            // If this exception is an instance of HttpException
+            if ($this->isHttpException($e)) {
+                // Grab the HTTP status code from the Exception
+                $status = $e->getStatusCode();
+            }
+
+            // Return a JSON response with the response array and status code
+            return response()->json($e->getMessage(), $status);
+        }
+        
         return parent::render($request, $exception);
     }
 }

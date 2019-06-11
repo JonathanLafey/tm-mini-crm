@@ -269,11 +269,11 @@ MSSQL_PORT=1433
 
 ### MARIADB ###############################################
 
-MARIADB_DATABASE=default
-MARIADB_USER=default
-MARIADB_PASSWORD=secret
+MARIADB_DATABASE=crm
+MARIADB_USER=user
+MARIADB_PASSWORD=user
 MARIADB_PORT=3306
-MARIADB_ROOT_PASSWORD=root
+MARIADB_ROOT_PASSWORD=user
 MARIADB_ENTRYPOINT_INITDB=./mariadb/docker-entrypoint-initdb.d
 
 ### POSTGRES ##############################################
@@ -332,13 +332,13 @@ ADM_INSTALL_MSSQL=false
 
 # Accepted values: mariadb - mysql
 
-PMA_DB_ENGINE=mysql
+PMA_DB_ENGINE=mariadb
 
 # Credentials/Port:
 
-PMA_USER=default
-PMA_PASSWORD=secret
-PMA_ROOT_PASSWORD=secret
+PMA_USER=user
+PMA_PASSWORD=user
+PMA_ROOT_PASSWORD=user
 PMA_PORT=8080
 
 ### MAILDEV ###############################################

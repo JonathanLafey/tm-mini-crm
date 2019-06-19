@@ -11,9 +11,10 @@
 |
 */
 
+// show login page for all unauthenticated users
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('auth/login');
+})->middleware('guest');
 
 // Use Laravel make:auth as default bootstrap, but remove the ability to register
 Auth::routes(['register' => false]);

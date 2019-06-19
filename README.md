@@ -80,11 +80,17 @@ This is to store client avatars in storage/app/public folder and make them acces
 
 `docker-compose exec workspace npm install`
 
+9. Compile components
+
+`docker-compose exec workspace npm run dev`
+
 ## Showcase
 
 On your browser, head to `localhost`. You should see the default laravel template.
-There is no UI provided but you can navigate to `localhost/login` and login with the required credentials (*username = admin@admin.com*, *password = password*).
+By default an anonymous user is shown only the login form, which you can try with the requested credentials (*username = admin@admin.com*, *password = password*).
 You can also navigate to `localhost/register` to confirm that it has been deactivated
+
+After login the default (home) page provides a paginated list with the clients and their assigned transactions (as a nested table)
 
 The rest of the functionality is only available through APIs. For ease of reference you can find a [postman](https://www.getpostman.com/) collection with the name `tickmill-crm.postman_collection.json` which you can [import to postman](https://learning.getpostman.com/docs/postman/collections/data_formats/#importing-postman-data). After that you need to [create an environment with 2 variables](https://learning.getpostman.com/docs/postman/environments_and_globals/variables/#accessing-variables-in-the-request-builder):
 * url = localhost
@@ -104,8 +110,10 @@ All the routes require authentication but because we didn't implement a proper A
 
 These are the pending items that need to be done as they weren't implemented due to lack of time
 
-* Front-end with Vue
+* Implement the rest of the API functionalities
 * Tests
 * More fine-grained API error handler
 * More appropriate API authentication with JWT
 * Guidelines for building a production-ready Dockerfile
+* Apply some styles with scss
+* Fix the bug with the pagination component not rendering new data
